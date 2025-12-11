@@ -1,0 +1,656 @@
+/* Стили для слайдера */
+.slider {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.slider-container {
+    margin-bottom: 20px;
+}
+
+.photo-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#currentPhoto {
+    max-width: 100%;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.photo-info-above-btn {
+    text-align: center;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.photo-info-above-btn span {
+    display: block;
+}
+
+#photoCounter {
+    font-weight: bold;
+    font-size: 26px;
+    color: #333;
+}
+
+#photoTitle {
+    font-style: italic;
+    color: #666;
+    font-size: 18px;
+}
+
+/* Управление слайдером */
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.slider-btn {
+    background: #333;
+    color: white;
+    padding: 12px 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 4px;
+    min-width: 150px;
+    justify-content: center;
+    height: 44px;
+}
+
+/* Специфичные стили для разных кнопок */
+.prev-btn {
+    background: #333;
+    justify-content: flex-start;
+}
+
+.next-btn {
+    background: #333;
+    justify-content: flex-end;
+}
+
+.download-btn {
+    background: #4CAF50;
+    justify-content: center;
+}
+
+.slider-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.slider-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.prev-btn:hover:not(:disabled) {
+    background: #555;
+}
+
+.next-btn:hover:not(:disabled) {
+    background: #555;
+}
+
+.download-btn:hover:not(:disabled) {
+    background: #45a049;
+}
+
+.slider-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Анимации для кнопок */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.download-btn:not(:disabled) {
+    animation: pulse 2s infinite;
+}
+
+.download-btn:disabled {
+    animation: none;
+}
+
+/* Анимации стрелок */
+.slider-btn .btn-icon {
+    transition: transform 0.3s ease;
+    font-weight: bold;
+}
+
+.prev-btn:hover .btn-icon {
+    transform: translateX(-5px);
+}
+
+.prev-btn:active .btn-icon {
+    transform: translateX(-10px);
+}
+
+.next-btn:hover .btn-icon {
+    transform: translateX(5px);
+}
+
+.next-btn:active .btn-icon {
+    transform: translateX(10px);
+}
+
+/* Подсказка горячих клавиш */
+.keyboard-hint {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.btn-click {
+    transform: scale(0.95);
+    transition: transform 0.2s ease;
+}
+
+/* Сообщения о скачивании */
+.download-success .success-content,
+.download-error .error-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.success-icon {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.error-icon {
+    font-size: 24px;
+}
+
+.download-error small {
+    font-weight: normal;
+    font-size: 12px;
+    margin-top: 5px;
+    opacity: 0.9;
+    text-align: center;
+}
+
+/* Адаптивность для слайдера */
+@media (max-width: 768px) {
+    .slider-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .slider-btn {
+        width: 100%;
+        max-width: 250px;
+        min-width: 200px;
+    }
+    
+    .photo-frame {
+        min-height: 300px;
+    }
+}
+
+@media (min-width: 769px) {
+    .slider-controls {
+        flex-wrap: nowrap;
+    }
+}
+
+/* Стили для галереи */
+.gallery-toggle {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.gallery-toggle-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.gallery-toggle-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.gallery-toggle-btn:active {
+    transform: translateY(-1px);
+}
+
+.toggle-icon {
+    font-size: 20px;
+}
+
+/* Модальное окно галереи */
+.gallery-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: none;
+    overflow-y: auto;
+}
+
+.gallery-modal.active {
+    display: block;
+}
+
+.gallery-modal-content {
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.gallery-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.gallery-modal-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.close-gallery-btn {
+    background: #f44336;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.close-gallery-btn:hover {
+    background: #d32f2f;
+}
+
+/* Сетка галереи */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.gallery-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.gallery-item-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item-select {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+}
+
+.photo-checkbox {
+    display: none;
+}
+
+.photo-checkbox + label {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+.photo-checkbox:checked + label {
+    background: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.photo-checkbox:checked + label::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+}
+
+.gallery-item-info {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.gallery-item-title {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    word-break: break-word;
+}
+
+.gallery-item-number {
+    display: block;
+    font-size: 14px;
+    color: #666;
+}
+
+.gallery-item-actions {
+    display: flex;
+    gap: 10px;
+    padding: 0 15px 15px;
+}
+
+.gallery-view-btn,
+.gallery-download-btn {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.gallery-view-btn {
+    background: #2196F3;
+    color: white;
+}
+
+.gallery-view-btn:hover {
+    background: #1976D2;
+}
+
+.gallery-download-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.gallery-download-btn:hover {
+    background: #388E3C;
+}
+
+/* Управление галереей */
+.gallery-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px 0;
+    border-top: 2px solid #eee;
+}
+
+.gallery-action-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.gallery-action-btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.gallery-action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.download-action-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+/* Модальное окно слайд-шоу */
+.slideshow-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: none;
+}
+
+.slideshow-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slideshow-content {
+    background: white;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow: hidden;
+}
+
+.slideshow-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #333;
+    color: white;
+}
+
+.slideshow-header h3 {
+    margin: 0;
+}
+
+.slideshow-counter {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.close-slideshow-btn {
+    background: none;
+    color: white;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-slideshow-btn:hover {
+    opacity: 0.8;
+}
+
+.slideshow-container {
+    padding: 20px;
+    text-align: center;
+    background: #000;
+}
+
+.slideshow-container img {
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    display: block;
+}
+
+.slideshow-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.slideshow-nav-btn {
+    padding: 12px 24px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.slideshow-play-btn {
+    padding: 12px 24px;
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.slideshow-speed {
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.slideshow-speed label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.slideshow-speed select {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+}
+
+/* Анимации */
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Адаптивность для галереи */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .gallery-item img {
+        height: 150px;
+    }
+    
+    .gallery-item-actions {
+        flex-direction: column;
+    }
+    
+    .slideshow-content {
+        max-width: 95%;
+    }
+    
+    .slideshow-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+}

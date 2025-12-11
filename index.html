@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея фотографий - Главная</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/slider.css">
+    <link rel="stylesheet" href="styles/footer.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Love Cat's</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="game.html">Игра</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h2>Добро пожаловать на сайт!</h2>
+            
+            <section class="gallery-section">
+                <h3>Моя галерея</h3>
+                
+                <!-- Кнопка открытия галереи -->
+                <div class="gallery-toggle">
+                    <button id="toggleGalleryBtn" class="gallery-toggle-btn">
+                        <span class="toggle-icon">🖼️</span>
+                        <span class="toggle-text">Открыть галерею всех фото</span>
+                    </button>
+                </div>
+                
+                <!-- Основной слайдер -->
+                <div id="slider" class="slider">
+                    <div class="slider-container">
+                        <div class="photo-frame">
+                            <!-- Исправлено: конкретное изображение вместо пустого src -->
+                            <img id="currentPhoto" src="src/1.jpg" alt="Фотография 1">
+                        </div>
+                    </div>
+                    <div class="photo-info-above-btn">
+                        <span id="photoCounter">Фото 1 из 30</span>
+                        <span id="photoTitle">Прекрасные котики</span>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn prev-btn" id="prevBtn">
+                            <span class="btn-icon">←</span>
+                            <span class="btn-text">Предыдущая</span>
+                        </button>
+                        
+                        <!-- Кнопка скачивания -->
+                        <button class="slider-btn download-btn" id="downloadBtn">
+                            <span class="btn-icon">↓</span>
+                            <span class="btn-text">Скачать фото</span>
+                        </button>
+                        
+                        <button class="slider-btn next-btn" id="nextBtn">
+                            <span class="btn-text">Следующая</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Модальное окно галереи -->
+                <div id="galleryModal" class="gallery-modal">
+                    <div class="gallery-modal-content">
+                        <div class="gallery-modal-header">
+                            <h3>Галерея всех фотографий</h3>
+                            <button id="closeGalleryBtn" class="close-gallery-btn">×</button>
+                        </div>
+                        <div class="gallery-grid" id="galleryGrid">
+                            <!-- Фотографии будут добавлены через JavaScript -->
+                        </div>
+                        <div class="gallery-controls">
+                            <button id="selectAllBtn" class="gallery-action-btn">
+                                <span class="action-icon">✓</span>
+                                Выбрать все
+                            </button>
+                            <button id="deselectAllBtn" class="gallery-action-btn">
+                                <span class="action-icon">✗</span>
+                                Снять выбор
+                            </button>
+                            <button id="downloadSelectedBtn" class="gallery-action-btn download-action-btn">
+                                <span class="action-icon">📥</span>
+                                Скачать выбранные
+                            </button>
+                            <button id="viewAsSlideshowBtn" class="gallery-action-btn">
+                                <span class="action-icon">▶️</span>
+                                Просмотр слайд-шоу
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Модальное окно слайд-шоу -->
+                <div id="slideshowModal" class="slideshow-modal">
+                    <div class="slideshow-content">
+                        <div class="slideshow-header">
+                            <h3>Слайд-шоу</h3>
+                            <div class="slideshow-counter">
+                                <span id="slideshowCounter">1 / 8</span>
+                            </div>
+                            <button id="closeSlideshowBtn" class="close-slideshow-btn">×</button>
+                        </div>
+                        <div class="slideshow-container">
+                            <!-- Исправлено: конкретное изображение вместо пустого src -->
+                            <img id="slideshowImage" src="src/1.jpg" alt="Слайд-шоу">
+                        </div>
+                        <div class="slideshow-controls">
+                            <button id="prevSlideshowBtn" class="slideshow-nav-btn">
+                                <span class="nav-icon">←</span>
+                                Назад
+                            </button>
+                            <button id="playPauseBtn" class="slideshow-play-btn">
+                                <span class="play-icon">⏸️</span>
+                                Пауза
+                            </button>
+                            <button id="nextSlideshowBtn" class="slideshow-nav-btn">
+                                Вперед
+                                <span class="nav-icon">→</span>
+                            </button>
+                        </div>
+                        <div class="slideshow-speed">
+                            <label>Скорость:</label>
+                            <select id="slideshowSpeed">
+                                <option value="3000">Медленно (3 сек)</option>
+                                <option value="2000" selected>Средне (2 сек)</option>
+                                <option value="1000">Быстро (1 сек)</option>
+                                <option value="500">Очень быстро (0.5 сек)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="api-section">
+                <h3>Курсы валют ЦБ РФ</h3>
+                <div class="currency-controls">
+                    <div class="currency-refresh">
+                        <button id="refreshRates" class="refresh-btn">
+                            <span class="refresh-icon">↻</span>
+                            Обновить курсы
+                        </button>
+                        <div id="lastUpdate" class="last-update">
+                            Последнее обновление: загрузка...
+                        </div>
+                    </div>
+                </div>
+                <div id="currencyData" class="currency-data">
+                    <div class="loading">Загрузка курсов валют...</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Love Cat's. Все права защищены.</p>
+            <p>Курсы валют предоставляются Центральным банком Российской Федерации</p>
+            <p class="footer-note">
+                <small>
+                    Официальный источник: 
+                    <a href="https://www.cbr-xml-daily.ru/" target="_blank" rel="noopener noreferrer">
+                        Центробанк РФ
+                    </a>
+                </small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts/slider.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

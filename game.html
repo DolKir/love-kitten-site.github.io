@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра "Змейка"</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <style>
+        .game-page .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .game-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .game-controls {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .game-btn {
+            padding: 12px 24px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            min-width: 150px;
+        }
+        
+        .game-btn:hover {
+            background: #45a049;
+        }
+        
+        .game-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .game-score {
+            font-size: 24px;
+            color: #333;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .game-instructions {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        
+        .game-instructions h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .game-instructions ul {
+            text-align: left;
+            margin-left: 20px;
+        }
+        
+        .game-instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .keyboard-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .key {
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .key-arrow {
+            font-size: 20px;
+        }
+        
+        @media (max-width: 480px) {
+            .game-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .game-btn {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body class="game-page">
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Love Cat's</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="game.html" class="active">Игра</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h2>Игра "Змейка"</h2>
+            
+            <div class="game-container">
+                <div class="game-controls">
+                    <button id="startBtn" class="game-btn">Старт</button>
+                    <button id="restartBtn" class="game-btn" disabled>Перезапустить</button>
+                </div>
+                
+                <div class="game-score" id="scoreDisplay">Счет: 0</div>
+            </div>
+            
+            <div class="game-instructions">
+                <h3>Как играть:</h3>
+                <ul>
+                    <li>Нажмите "Старт" для начала игры</li>
+                    <li>Используйте стрелки на клавиатуре для управления змейкой</li>
+                    <li>Собирайте красные яблоки, чтобы увеличивать счет</li>
+                    <li>Избегайте столкновений со стенами и с собой</li>
+                    <li>Нажмите "Перезапустить" для новой игры после поражения</li>
+                </ul>
+                <p><strong>Управление:</strong> ← ↑ → ↓</p>
+                <p><strong>Цель:</strong> Набрать как можно больше очков!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Love Cat's. Все права защищены.</p>
+            <p>Игра "Змейка" - классическая аркадная игра</p>
+        </div>
+    </footer>
+
+    <script src="scripts/game.js"></script>
+</body>
+</html>
