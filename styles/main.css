@@ -242,21 +242,9 @@ section {
     --currency-color: #F44336;
     border-top-color: #F44336;
 }
-.currency-card.JPY {
+.currency-card.KZT {
     --currency-color: #9C27B0;
     border-top-color: #9C27B0;
-}
-.currency-card.CHF {
-    --currency-color: #00BCD4;
-    border-top-color: #00BCD4;
-}
-.currency-card.TRY {
-    --currency-color: #FF5722;
-    border-top-color: #FF5722;
-}
-.currency-card:not(.USD):not(.EUR):not(.GBP):not(.CNY):not(.JPY):not(.CHF):not(.TRY) {
-    --currency-color: #607D8B;
-    border-top-color: #607D8B;
 }
 
 .currency-header {
@@ -640,4 +628,5 @@ section {
 .currency-card.KZT {
     --currency-color: #9C27B0;
     border-top-color: #9C27B0;
+
 }
