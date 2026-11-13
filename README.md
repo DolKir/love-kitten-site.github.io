@@ -15,8 +15,8 @@
 - GitHub Pages (для деплоя)
 
 ## Запуск проекта
-### Вариант первый Онлайн:
+### Вариант первый:
 1. Клонируйте репозиторий: `git clone https://github.com/DolKir/love-kitten-site.github.io.git`
 2. Откройте файл `index.html` в браузере или используйте расширение Live Server в VS Code.
-### Вариант второй Онлайн:
+### Вариант второй:
 Скопируйте ссылку и откройте её в браузере https://dolkir.github.io/love-kitten-site.github.io/
